@@ -155,8 +155,8 @@ h2{
 
 
 .categories{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
+    display: flex;
+    flex-wrap: nowrap;
     gap:28px;
     align-items: start;
 }
@@ -167,6 +167,8 @@ h2{
 
 .card{
     text-align: center;
+    flex: 1;
+    min-width: 0;
 }
 
 
@@ -238,7 +240,10 @@ h2{
 
 
 @media(max-width:880px){.categories{ 
-    grid-template-columns: repeat(2,1fr);
+    flex-wrap: wrap;
+}
+.card{
+    flex: 1 1 calc(50% - 14px);
 }
 .card-figure img{height: 220px;}
     
@@ -247,8 +252,11 @@ h2{
 
 
 @media(max-width:560px){.categories{
-    grid-template-columns: 1;
+    flex-wrap: wrap;
     gap: 20px;
+}
+.card{
+    flex: 1 1 100%;
 }
 .card-figure img{height: 320px;}
     .wrap{padding: 0 16px;margin: 24px auto;}
